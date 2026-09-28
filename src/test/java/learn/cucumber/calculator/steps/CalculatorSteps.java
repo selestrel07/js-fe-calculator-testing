@@ -27,6 +27,11 @@ public class CalculatorSteps {
         this.page.enterNumber(number);
     }
 
+    @When("I click {string} button")
+    public void clickButton(String buttonSymbol) {
+        this.page.clickButton(buttonSymbol);
+    }
+
     @Then("I should see {string}")
     public void verifyDisplayValue(String expectedValue) {
         assertThat(this.page.getDisplayValue()).isEqualTo(expectedValue);

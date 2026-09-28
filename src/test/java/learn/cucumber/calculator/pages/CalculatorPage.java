@@ -35,12 +35,12 @@ public class CalculatorPage {
         locators.forEach((k, v) -> this.elements.put(k, this.driver.findElement(v)));
     }
 
-    public void clickInputButton(String number) {
-        this.elements.get(number).click();
+    public void clickButton(String symbol) {
+        this.elements.get(symbol).click();
     }
 
     public void enterNumber(String number) {
-        Arrays.stream(number.split("")).forEach(this::clickInputButton);
+        Arrays.stream(number.split("")).forEach(this::clickButton);
     }
 
     public String getDisplayValue() {
