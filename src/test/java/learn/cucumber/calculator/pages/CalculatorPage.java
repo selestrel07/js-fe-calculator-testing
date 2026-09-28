@@ -29,7 +29,8 @@ public class CalculatorPage {
                 entry("8", By.className("eight")),
                 entry("9", By.className("nine")),
                 entry("display", By.className("current-value")),
-                entry(".", By.className("decimal"))
+                entry(".", By.className("decimal")),
+                entry("operation", By.className("operation"))
         );
         locators.forEach((k, v) -> this.elements.put(k, this.driver.findElement(v)));
     }
@@ -45,4 +46,6 @@ public class CalculatorPage {
     public String getDisplayValue() {
         return this.elements.get("display").getText();
     }
+
+    public String getOperationValue() { return this.elements.get("operation").getText(); }
 }

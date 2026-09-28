@@ -13,6 +13,10 @@ public class CalculatorSteps {
     private CalculatorPage page;
     private final ChromeDriver driver = new ChromeDriver();
 
+    private String convertOperationStringValue(String operationValue) {
+        return operationValue.isEmpty() ? "nothing" : operationValue;
+    }
+
     @Given("I open the calculator")
     public void openCalculator() {
         this.page = new CalculatorPage(driver);
@@ -26,6 +30,11 @@ public class CalculatorSteps {
     @Then("I should see {string}")
     public void verifyDisplayValue(String expectedValue) {
         assertThat(this.page.getDisplayValue()).isEqualTo(expectedValue);
+    }
+
+    @Then("I should see {string} in the operation string")
+    public void verifyOperationValue(String expectedValue) {
+        assertThat(convertOperationStringValue(this.page.getOperationValue())).isEqualTo(expectedValue);
     }
 
     @After
