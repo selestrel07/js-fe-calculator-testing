@@ -28,17 +28,18 @@ public class CalculatorPage {
                 entry("7", By.className("seven")),
                 entry("8", By.className("eight")),
                 entry("9", By.className("nine")),
-                entry("display", By.className("current-value"))
+                entry("display", By.className("current-value")),
+                entry(".", By.className("decimal"))
         );
         locators.forEach((k, v) -> this.elements.put(k, this.driver.findElement(v)));
     }
 
-    public void clickNumberButton(String number) {
+    public void clickInputButton(String number) {
         this.elements.get(number).click();
     }
 
     public void enterNumber(String number) {
-        Arrays.stream(number.split("")).forEach(this::clickNumberButton);
+        Arrays.stream(number.split("")).forEach(this::clickInputButton);
     }
 
     public String getDisplayValue() {
