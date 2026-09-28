@@ -1,7 +1,7 @@
 package learn.cucumber.calculator.steps;
 
 import io.cucumber.java.After;
-import io.cucumber.java.en.Given;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import learn.cucumber.calculator.pages.CalculatorPage;
@@ -17,7 +17,7 @@ public class CalculatorSteps {
         return operationValue.isEmpty() ? "nothing" : operationValue;
     }
 
-    @Given("I open the calculator")
+    @Before
     public void openCalculator() {
         this.page = new CalculatorPage(driver);
     }
